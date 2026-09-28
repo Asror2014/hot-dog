@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DANARCI — Doner & Fast Food</title>
+
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+    <div class="logo">
+        <span>🍔</span>
+        <div>
+            <strong>DANARCI</strong>
+            <small>DONER & FAST FOOD</small>
+        </div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="nav">
+        <a href="#home">Bosh sahifa</a>
+        <a href="#menu">Menyu</a>
+        <a href="#cart">Savat <span class="cart-badge" id="cartCount">0</span></a>
+        <a href="#order">Buyurtma</a>
+        <a href="#map">Xarita</a>
+        <a href="#receipt">Chek</a>
+        <a href="#about">Biz haqimizda</a>
+        <a href="#contact">Aloqa</a>
+    </nav>
+
+    <div class="language">
+        <button id="uzBtn">UZ</button>
+        <button id="ruBtn">RU</button>
+    </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge">🔥 YANGI TA'M</span>
+
+            <h1>
+                Mazali <span>DANARCI</span>
+                <br>
+                siz uchun!
+            </h1>
+
+            <p>
+                Yangi tayyorlangan doner, lavash, burger,
+                kartoshka va ichimliklar.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="btn primary">
+                    🍔 Menyuni ko‘rish
+                </a>
+
+                <a href="#order" class="btn secondary">
+                    🛒 Buyurtma berish
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-food">
+            <div class="food-circle">
+                🌯
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ADVANTAGES ================= -->
+<section class="advantages">
+
+    <div class="advantage">
+        <span>🥩</span>
+        <h3>Sifatli mahsulot</h3>
+        <p>Har kuni yangi mahsulotlardan foydalanamiz.</p>
+    </div>
+
+    <div class="advantage">
+        <span>⚡</span>
+        <h3>Tez tayyorlaymiz</h3>
+        <p>Buyurtmangizni imkon qadar tez tayyorlaymiz.</p>
+    </div>
+
+    <div class="advantage">
+        <span>🚚</span>
+        <h3>Yetkazib berish</h3>
+        <p>Buyurtmangizni ko‘rsatilgan manzilga yetkazamiz.</p>
+    </div>
+
+    <div class="advantage">
+        <span>⭐</span>
+        <h3>Yuqori sifat</h3>
+        <p>Mijozlarimiz fikri biz uchun muhim.</p>
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+<section id="menu" class="section">
+
+    <div class="section-title">
+        <span>🍔 DANARCI MENU</span>
+        <h2>Bizning menyu</h2>
+        <p>O‘zingizga yoqqan taomni tanlang</p>
+    </div>
+
+    <div class="categories">
+
+        <button class="category active" data-category="all">
+            Hammasi
+        </button>
+
+        <button class="category" data-category="doner">
+            🌯 Doner
+        </button>
+
+        <button class="category" data-category="lavash">
+            🥙 Lavash
+        </button>
+
+        <button class="category" data-category="burger">
+            🍔 Burger
+        </button>
+
+        <button class="category" data-category="fri">
+            🍟 Kartoshka
+        </button>
+
+        <button class="category" data-category="drink">
+            🥤 Ichimlik
+        </button>
+
+    </div>
+
+    <div id="products" class="products"></div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+<section id="cart" class="section cart-section">
+
+    <div class="section-title">
+        <span>🛒 SAVAT</span>
+        <h2>Sizning savatingiz</h2>
+        <p>Buyurtma qilishdan oldin mahsulotlarni tekshiring</p>
+    </div>
+
+    <div class="cart-container">
+
+        <div id="cartItems" class="cart-items">
+            <!-- JS orqali chiqadi -->
+        </div>
+
+        <div class="cart-summary">
+
+            <h3>Buyurtma jami</h3>
+
+            <div class="summary-row">
+                <span>Mahsulotlar:</span>
+                <strong id="cartTotal">0 so‘m</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Yetkazib berish:</span>
+                <strong id="deliveryPrice">0 so‘m</strong>
+            </div>
+
+            <hr>
+
+            <div class="summary-total">
+                <span>Jami:</span>
+                <strong id="finalTotal">0 so‘m</strong>
+            </div>
+
+            <a href="#order" class="btn primary full">
+                Buyurtma berish
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER ================= -->
+<section id="order" class="section">
+
+    <div class="section-title">
+        <span>📦 BUYURTMA</span>
+        <h2>Buyurtma berish</h2>
+        <p>Ma'lumotlaringizni kiriting</p>
+    </div>
+
+    <div class="order-layout">
+
+        <form id="orderForm" class="order-form">
+
+            <label>
+                Ismingiz
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Ismingizni kiriting"
+                    required
+                >
+            </label>
+
+            <label>
+                Telefon raqamingiz
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="+998 90 123 45 67"
+                    required
+                >
+            </label>
+
+            <label>
+                Manzil
+                <textarea
+                    id="customerAddress"
+                    placeholder="Manzilingizni yozing..."
+                    required
+                ></textarea>
+            </label>
+
+            <div class="selected-location">
+
+                <div>
+                    <span>📍 Tanlangan joy</span>
+                    <p id="locationText">
+                        Xarita orqali manzil tanlanmagan
+                    </p>
+                </div>
+
+                <a href="#map" class="small-btn">
+                    🗺️ Xaritadan tanlash
+                </a>
+
+            </div>
+
+            <h3>To‘lov turi</h3>
+
+            <div class="payment-options">
+
+                <label class="payment-card">
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Naqd"
+                        checked
+                    >
+                    <span>💵</span>
+                    Naqd pul
+                </label>
+
+                <label class="payment-card">
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Karta"
+                    >
+                    <span>💳</span>
+                    Karta
+                </label>
+
+            </div>
+
+            <button type="submit" class="btn primary full">
+                ✅ Buyurtmani tasdiqlash
+            </button>
+
+        </form>
+
+
+        <div class="order-preview">
+
+            <div class="preview-icon">
+                🍔
+            </div>
+
+            <h3>DANARCI</h3>
+
+            <p>
+                Buyurtmangizni tasdiqlaganingizdan so‘ng
+                chek avtomatik hosil bo‘ladi.
+            </p>
+
+            <div class="preview-info">
+                <span>🕐 Ish vaqti</span>
+                <strong>10:00 — 23:00</strong>
+            </div>
+
+            <div class="preview-info">
+                <span>🚚 Yetkazib berish</span>
+                <strong>Manzil bo‘yicha</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAP ================= -->
+<section id="map" class="section">
+
+    <div class="section-title">
+        <span>🗺️ XARITA</span>
+        <h2>Yetkazib berish manzili</h2>
+        <p>Xaritadan kerakli joyni bosing</p>
+    </div>
+
+    <div class="map-box">
+
+        <div id="mapArea"></div>
+
+        <div class="map-controls">
+
+            <button id="myLocation" class="btn primary">
+                📍 Mening joylashuvim
+            </button>
+
+            <button id="clearLocation" class="btn danger">
+                🗑️ Tozalash
+            </button>
+
+        </div>
+
+        <div class="map-result">
+            <strong>Tanlangan koordinata:</strong>
+            <span id="coordinates">
+                Hali tanlanmagan
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECEIPT ================= -->
+<section id="receipt" class="section receipt-section">
+
+    <div class="section-title">
+        <span>🧾 CHEK</span>
+        <h2>Buyurtma cheki</h2>
+        <p>Buyurtma tasdiqlangandan keyin shu yerda chiqadi</p>
+    </div>
+
+    <div id="receiptBox" class="receipt">
+
+        <div class="receipt-empty">
+
+            <div>🧾</div>
+
+            <h3>Chek hali mavjud emas</h3>
+
+            <p>
+                Avval menyudan mahsulot tanlang va
+                buyurtma bering.
+            </p>
+
+            <a href="#menu" class="btn primary">
+                Menyuga o'tish
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section about-section">
+
+    <div class="section-title">
+        <span>ℹ️ DANARCI</span>
+        <h2>Biz haqimizda</h2>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-card big">
+
+            <div class="about-icon">
+                🌯
+            </div>
+
+            <h3>DANARCI — mazali tanlov</h3>
+
+            <p>
+                DANARCI — mazali doner, lavash, burger,
+                kartoshka va ichimliklarni taklif qiluvchi
+                zamonaviy fast-food restorani.
+            </p>
+
+            <p>
+                Bizning maqsadimiz — mijozlarga sifatli,
+                mazali va tez tayyorlangan taomlarni taqdim etish.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+            <span>🥩</span>
+            <h3>Sifat</h3>
+            <p>Mahsulotlarning sifatiga e'tibor beramiz.</p>
+        </div>
+
+        <div class="about-card">
+            <span>❤️</span>
+            <h3>Mijozlar</h3>
+            <p>Mijozlarning fikri biz uchun muhim.</p>
+        </div>
+
+        <div class="about-card">
+            <span>⚡</span>
+            <h3>Tezlik</h3>
+            <p>Buyurtmalarni tez va qulay tayyorlaymiz.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section contact-section">
+
+    <div class="section-title">
+        <span>📞 ALOQA</span>
+        <h2>Biz bilan bog‘laning</h2>
+    </div>
+
+    <div class="contact-grid">
+
+        <a href="tel:+998901234567" class="contact-card">
+            <span>📞</span>
+            <h3>Telefon</h3>
+            <p>+998 90 123 45 67</p>
+        </a>
+
+        <a href="#" class="contact-card">
+            <span>✈️</span>
+            <h3>Telegram</h3>
+            <p>@danarci</p>
+        </a>
+
+        <a href="#" class="contact-card">
+            <span>📷</span>
+            <h3>Instagram</h3>
+            <p>@danarci</p>
+        </a>
+
+        <div class="contact-card">
+            <span>🕐</span>
+            <h3>Ish vaqti</h3>
+            <p>10:00 — 23:00</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+
+    <div class="footer-logo">
+        🍔 DANARCI
+    </div>
+
+    <p>
+        Mazali taomlar — yaxshi kayfiyat!
+    </p>
+
+    <div class="footer-links">
+        <a href="#home">Bosh sahifa</a>
+        <a href="#menu">Menyu</a>
+        <a href="#about">Biz haqimizda</a>
+        <a href="#contact">Aloqa</a>
+    </div>
+
+    <div class="copyright">
+        © 2026 DANARCI. Barcha huquqlar himoyalangan.
+    </div>
+
+</footer>
+
+
+<!-- Leaflet xarita -->
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script src="js.js"></script>
+
+</body>
+</html>
